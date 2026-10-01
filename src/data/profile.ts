@@ -1,15 +1,3 @@
-/**
- * YOUR IDENTITY - start here.
- *
- * Everything that says who you are lives in this file: name, handle, photo,
- * socials, email and the Home headline. Every value below is a PLACEHOLDER.
- * Replace the text, or hand this file to your AI assistant and tell it what
- * to put in each field.
- *
- * Page-specific copy (projects, services, testimonials, FAQs) lives in the
- * other files in src/data/ and at the top of each view component.
- */
-
 import { Briefcase, SealCheck, Clock, type Icon } from '@/components/slab'
 
 export type SocialLink = {
@@ -18,23 +6,17 @@ export type SocialLink = {
   iconPath: string
 }
 
-/** A proof fact on the phone's Home: a glyph, a short value, a caption. */
 export type Stat = { value: string; label: string; Icon: Icon }
 
 export type Profile = {
   name: string
-  /** First name, used in "Hi, I'm ___." on About. */
   firstName: string
   handle: string
-  /** Short role line under the handle on phones. */
   role: string
-  /** Square image. An SVG, WebP or PNG with a transparent background looks best. */
   avatarSrc: string
-  /** Tooltip / screen-reader label on the verified tick next to your name. */
   verifiedLabel: string
   email: string
   location: string
-  /** Three short proof facts shown on phones under the Home lede. */
   stats: Stat[]
   displayName: { line1: string; line2: string }
   hero: {
@@ -46,31 +28,27 @@ export type Profile = {
 }
 
 export const profile: Profile = {
-  name: 'Your Name',
-  firstName: 'Your Name',
-  handle: '@yourhandle',
-  role: 'PLACEHOLDER - your title',
-  avatarSrc: '/avatar.svg',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
-  email: 'you@example.com',
-  location: 'PLACEHOLDER - your city or timezone',
-  // Pick any icon from https://phosphoricons.com and import it above.
+  name: 'Joebert Y. Ganay',
+  firstName: 'Joebert',
+  handle: '@joebertganay',
+  role: 'Virtual Assistant · Customer & Technical Support Specialist · HR & Compliance Liaison',
+  avatarSrc: '/joebeth.jpg',
+  verifiedLabel: 'Certified GoHighLevel & CRM Specialist',
+  email: 'joebertganay@gmail.com',
+  location: 'Philippines / International Shifts',
   stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER', Icon: Briefcase },
-    { value: '#000', label: 'PLACEHOLDER', Icon: SealCheck },
-    { value: 'GMT+0', label: 'PLACEHOLDER', Icon: Clock },
+    { value: '6+ yrs', label: 'Real Estate VA', Icon: Briefcase },
+    { value: '10+ yrs', label: 'Customer Support', Icon: SealCheck },
+    { value: '24/7', label: 'Global Availability', Icon: Clock },
   ],
-  // The intro types this line, then flies it into the Home headline.
-  // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Your headline here.', line2: 'Keep it short.' },
+  displayName: { line1: 'Reliable Support,', line2: 'Scaled for Growth.' },
   hero: {
-    body: 'PLACEHOLDER - one line on what you do and who you do it for.',
-    portraitSrc: '/avatar.svg',
-    portraitAlt: 'Portrait placeholder',
+    body: 'I help businesses stay organized and grow by providing reliable Virtual Assistant, Customer Support, and Technical Support services. With over 10 years of experience in customer service and troubleshooting, I specialize in client communication, operations support, data management, and sales outreach. My goal is to help business owners save time, improve customer satisfaction, and focus on scaling their business.',
+    portraitSrc: '/joebeth.jpg',
+    portraitAlt: 'Joebert Y. Ganay Portrait',
   },
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: '#', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    { label: 'Facebook profile', href: 'https://www.facebook.com/profile.php?id=61574317804322', iconPath: '/icons/facebook.svg' },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/joebert-ganay-006664172', iconPath: '/icons/linkedin.svg' },
   ],
 }

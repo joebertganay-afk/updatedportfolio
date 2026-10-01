@@ -5,16 +5,6 @@ import Autopilot, { TOOLS } from '@/components/Autopilot'
 
 /**
  * ServicesGrid - the Services view on one glass sheet.
- *
- * Three bands, top to bottom: your three-step method (on a dark plate so it
- * is the first thing the eye lands on), the five services as cards that carry
- * the marks of what each one is built with, and the live automation demo
- * scaled into whatever height is left. Same object language as Home and
- * Projects: the glass, the bento card, plated marks, orange for the index
- * and the accent.
- *
- * Every string below is a PLACEHOLDER. Replace it, or hand this file to your
- * AI assistant and tell it what to put in each spot.
  */
 
 /* ---------- The method ---------- */
@@ -30,30 +20,29 @@ type Stage = {
 const STAGES: Stage[] = [
   {
     index: '01',
-    label: 'Step 1',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Discovery & Triage',
+    body: 'Qualifying incoming leads, handling cold outreach, and managing customer inquiries with speed.',
     Icon: MagnetStraight,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
+    chips: ['Cold Calling', 'Lead Intake', 'Support Triage', 'Data Entry'],
   },
   {
     index: '02',
-    label: 'Step 2',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Pipeline & Operations',
+    body: 'Structuring pipelines in GoHighLevel or Follow Up Boss and managing Zendesk support tickets.',
     Icon: Timer,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['GoHighLevel', 'Follow Up Boss', 'Zendesk', 'Aloware'],
   },
   {
     index: '03',
-    label: 'Step 3',
-    body: 'PLACEHOLDER - one line on the result the client gets.',
+    label: 'Automation & Compliance',
+    body: 'Automating Google Sheets data flows via Apps Script and executing HR/statutory compliance tasks.',
     Icon: Trophy,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Google Apps Script', 'Webhooks', 'Compliance Liaison', 'Reporting'],
   },
 ]
 
 /* ---------- The services ---------- */
 
-// Example tool marks from /public/icons. Swap for the tools you actually use.
 const GHL = '/icons/gohighlevel.png'
 const REACT = '/icons/ai/react.svg'
 const TAILWIND = '/icons/ai/tailwindcss.svg'
@@ -76,53 +65,70 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = ['PLACEHOLDER benefit 1', 'PLACEHOLDER benefit 2', 'PLACEHOLDER benefit 3']
-const SERVICE_DESC = 'PLACEHOLDER - one line on this service.'
-
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Service One',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: BULLETS,
+    title: 'Real Estate Virtual Assistance',
+    description: 'End-to-end admin, cold calling outreach, and property listing management for brokerages.',
+    chip: 'Real Estate',
+    logos: [GHL, GWS, SLACK],
+    bullets: [
+      'Proactive outbound cold calling & lead qualification',
+      'Property listing setup and agency database directory builds',
+      'Buyer & seller follow-up sequences in Follow Up Boss',
+    ],
   },
   {
     index: '02',
-    title: 'Service Two',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, N8N, OPENAI],
-    bullets: BULLETS,
+    title: 'Customer & Technical Support',
+    description: '10+ years of expertise managing Tier 1 & 2 support and ticket escalation resolution.',
+    chip: 'Support',
+    logos: [GWS, SLACK, CHROME],
+    bullets: [
+      'Multichannel customer support via Zendesk & chat',
+      'Systematic ticket triage and technical escalation lifecycle',
+      'High-satisfaction client communication and account assistance',
+    ],
   },
   {
     index: '03',
-    title: 'Service Three',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, GWS, SLACK],
-    bullets: BULLETS,
+    title: 'CRM Setup & Operations',
+    description: 'Optimization and campaign execution across GoHighLevel, Follow Up Boss, and Zoho.',
+    chip: 'CRM Ops',
+    logos: [GHL, OPENAI, N8N],
+    bullets: [
+      'GoHighLevel pipeline, tagging, and workflow customization',
+      'Aloware dialer integration and phone system routing',
+      'Automated drip campaigns and audience segmentation',
+    ],
   },
   {
     index: '04',
-    title: 'Service Four',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: BULLETS,
+    title: 'Apps Script & Sheet Automation',
+    description: 'Custom Google Apps Script doPost handlers and webhook integrations directly to Google Sheets.',
+    chip: 'Automation',
+    logos: [GWS, REACT, TAILWIND],
+    bullets: [
+      'Web form backend handlers for custom lead collection',
+      'Automated data syncing between web inputs and Google Sheets',
+      'Custom JavaScript/Apps Script troubleshooting and optimization',
+    ],
   },
   {
     index: '05',
-    title: 'Service Five',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: BULLETS,
+    title: 'HR & Government Compliance Liaison',
+    description: '4+ years of HR record administration and statutory agency reporting and compliance.',
+    chip: 'HR & Admin',
+    logos: [GWS, CHROME, SLACK],
+    bullets: [
+      'Statutory compliance filing and agency liaison work',
+      'Employee records management and administrative workflow support',
+      'Document verification and operational audit preparation',
+    ],
   },
 ]
 
-/** The tool marks, stacked horizontally on white tiles (same as Projects). */
+/** The tool marks, stacked horizontally on white tiles. */
 function Marks({ logos }: { logos: string[] }) {
   return (
     <span className="bento__logos" aria-hidden="true">
@@ -143,26 +149,25 @@ export default function ServicesGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Services</span>
         <h1 className="pgrid__title" id="services-title">
-          Your services headline, in one short line.
+          Specialized Virtual Support, CRM Systems & Automation
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you offer.
+          Helping real estate agencies, businesses, and teams scale operations with high-efficiency support and custom workflows.
         </p>
       </header>
 
       <div className="home__glass sgrid__glass">
-        {/* One dark plate, the headline on the left, the three stages wired
-            in order on the right with a signal running them. */}
+        {/* Step-by-step method plate */}
         <div className="sgrid__method" aria-labelledby="method-title">
           <div className="sgrid__method-copy">
             <span className="sgrid__method-eyebrow">Your Method</span>
             <h2 className="sgrid__method-title" id="method-title">
-              One. Two. Three.
+              Capture. Convert.
               <br />
-              <span>Your method, in three steps.</span>
+              <span>Automate.</span>
             </h2>
             <p className="sgrid__method-sub">
-              PLACEHOLDER - one sentence on why your method works.
+              A structured 3-step operational framework designed to turn cold prospects into qualified leads and streamlined workflows.
             </p>
           </div>
 
@@ -175,7 +180,7 @@ export default function ServicesGrid() {
                   <span className="sgrid__stage-icon" aria-hidden="true">
                     <StageIcon size={22} weight="duotone" />
                   </span>
-                  <h3 className="sgrid__stage-label">{s.label}.</h3>
+                  <h3 className="sgrid__stage-label">{s.label}</h3>
                   <p className="sgrid__stage-body">{s.body}</p>
                   <ul className="sgrid__stage-chips" role="list" aria-label={`${s.label} touches`}>
                     {s.chips.map((c) => (
@@ -188,11 +193,11 @@ export default function ServicesGrid() {
           </ol>
         </div>
 
-        {/* Five cards, each carrying the marks of what it is built with. */}
+        {/* Five service cards */}
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
-            <h2 className="sgrid__offers-title">Your services, listed.</h2>
-            <p className="sgrid__offers-sub">PLACEHOLDER - one short nudge.</p>
+            <h2 className="sgrid__offers-title">Core Services</h2>
+            <p className="sgrid__offers-sub">Proven virtual assistance and technical capabilities tailored for growth.</p>
           </div>
           <ul className="bento sgrid__services" role="list">
             {SERVICES.map((s) => (
@@ -219,15 +224,14 @@ export default function ServicesGrid() {
           </ul>
         </div>
 
-        {/* The live workflow. Its caption and the tool chips sit in a header
-            above the window, so the canvas gets the whole glass width. */}
+        {/* Live automation workflow */}
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Live automation</span>
-              <h2 className="sgrid__flow-title">Your automation headline.</h2>
+              <span className="sgrid__flow-eyebrow">Live Automation</span>
+              <h2 className="sgrid__flow-title">Automated Lead Ingestion Pipeline</h2>
               <p className="sgrid__flow-sub">
-                PLACEHOLDER - tell me what to put here: one sentence on what this example automation does for a client.
+                Watch how web form submissions seamlessly payload into Google Sheets and trigger automated CRM lead tags in real time.
               </p>
             </div>
             <ul className="sgrid__flow-tools" role="list" aria-label="Tools that power this flow">

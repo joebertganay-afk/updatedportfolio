@@ -3,31 +3,27 @@ import { ArrowUpRight, MapPin } from '@/components/slab'
 import { profile } from '@/data/profile'
 
 /**
- * AboutGrid - the About view as a fixed viewport.
- *
- * One glass sheet, two columns: who you are on the left, the illustration
- * on the right. Sized to the panel, so nothing here scrolls.
- *
- * The left column is a ladder, not a paragraph block: one display statement,
- * one line of context, then the four things you do - each carrying the marks
- * of the tools it is built with. The tools are the proof, so they are the
- * visual. Swap the marks below for your own (any square SVG/PNG in public/).
+ * Custom / Platform Icon Definitions
+ * Adjust filenames below to match your exact filenames inside /public/icons/
  */
+const ZENDESK = { src: '/icons/zenddesk.svg', name: 'Zendesk' }
+const ZOHO = { src: '/icons/zoho.png', name: 'Zoho' }
+const GENESYS = { src: '/icons/genesys.png', name: 'Genesys' }
+const NICECXONE = { src: '/icons/nice-cxone.png', name: 'NICE CXone' } // Note: hyphenated if matching nice-cxone.png
 
-const N8N = { src: '/icons/ai/n8n.svg', name: 'n8n' }
-const ZAPIER = { src: '/icons/ai/zapier.svg', name: 'Zapier' }
-const DOCKER = { src: '/icons/ai/docker.svg', name: 'Docker' }
-const CLAUDE = { src: '/icons/ai/claude-color.svg', name: 'Claude' }
-const CODEX = { src: '/icons/ai/codex.svg', name: 'Codex' }
-const GLM = { src: '/icons/ai/zhipu.svg', name: 'GLM' }
-const QWEN = { src: '/icons/ai/qwen.svg', name: 'Qwen' }
-const HERMES = { src: '/icons/ai/hermes.svg', name: 'Hermes' }
-const NAMECHEAP = { src: '/icons/ai/namecheap.svg', name: 'Namecheap' }
-const CLOUDFLARE = { src: '/icons/ai/cloudflare.svg', name: 'Cloudflare' }
-const GITHUB = { src: '/icons/ai/github.svg', name: 'GitHub' }
+const CALLTOOLS = { src: '/icons/calltools.png', name: 'CallTools' }
+const ZILLOW = { src: '/icons/zillow.png', name: 'Zillow' }
+const REALTOR = { src: '/icons/realtor.png', name: 'Realtor.com' }
+const REDFIN = { src: '/icons/redfin.png', name: 'Redfin' }
 const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const SLACK = { src: '/icons/ai/slack-color.svg', name: 'Slack' }
-const FIREFLIES = { src: '/icons/ai/fireflies.png', name: 'Fireflies' }
+const SKYPE = { src: '/icons/skype.png', name: 'Skype' }
+
+const CHATGPT = { src: '/icons/chatgpt.png', name: 'ChatGPT' }
+const CLAUDE = { src: '/icons/claude.png', name: 'Claude' }
+const VSCODE = { src: '/icons/vscode.svg', name: 'VS Code' }
+
+const APPS_SCRIPT = { src: '/icons/googleworkspace.svg', name: 'Google Apps Script' }
+const GITHUB = { src: '/icons/github.png', name: 'GitHub' }
 
 type Capability = {
   index: string
@@ -38,23 +34,23 @@ type Capability = {
 const CAPABILITIES: Capability[] = [
   {
     index: '01',
-    title: 'Your role 1',
-    marks: [N8N, ZAPIER, DOCKER],
+    title: 'Customer Service & Technical Support (Zendesk, NICE CXone, Zoho, Genesys)',
+    marks: [ZENDESK, NICECXONE, ZOHO, GENESYS],
   },
   {
     index: '02',
-    title: 'Your role 2',
-    marks: [CLAUDE, CODEX, GLM, QWEN, HERMES],
+    title: 'Real Estate Operations (CallTools, Zillow, Realtor, Redfin, Google Workspace, Skype)',
+    marks: [CALLTOOLS, ZILLOW, REALTOR, REDFIN, GWS, SKYPE],
   },
   {
     index: '03',
-    title: 'Your role 3',
-    marks: [CLAUDE, CODEX, NAMECHEAP, CLOUDFLARE, GITHUB],
+    title: 'AI Prompt Engineering & Code Automation (ChatGPT, Claude, VS Code)',
+    marks: [CHATGPT, CLAUDE, VSCODE],
   },
   {
     index: '04',
-    title: 'Your role 4',
-    marks: [GWS, SLACK, FIREFLIES],
+    title: 'Custom Google Apps Script Development & GitHub Repositories',
+    marks: [APPS_SCRIPT, GITHUB],
   },
 ]
 
@@ -67,24 +63,19 @@ export default function AboutGrid() {
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you do.
+          Virtual Assistant, Customer & Tech Support Specialist, Real Estate Cold Caller & Automation Developer.
         </p>
       </header>
 
       <div className="home__glass agrid__glass">
         <div className="agrid__copy">
           <p className="agrid__lead">
-            Your big statement goes here, in one or two lines.
-            <span> A softer second half that finishes the thought.</span>
+            Combining 10+ years of enterprise customer service with real estate pipeline outreach
+            <span> and custom Google Apps Script workflow automations.</span>
           </p>
 
           <p className="agrid__note">
-            <strong>Your company name</strong>, and{' '}
-            <a className="agrid__link" href="#">
-              your product
-            </a>{' '}
-            - PLACEHOLDER - tell me what to put here: two sentences on your company, what
-            you sell or build, and who it is for.
+            <strong>Operations & Support Specialist</strong> - Experienced in high-volume omnichannel support, property research platforms, cold calling dialers, and custom script integrations.
           </p>
 
           <ul className="agrid__caps" role="list">
@@ -93,11 +84,11 @@ export default function AboutGrid() {
                 <span className="agrid__cap-marks">
                   {c.marks.map((m, i) => (
                     <span
-                      key={m.name}
+                      key={`${m.name}-${i}`}
                       className="agrid__mark"
                       style={{ '--i': c.marks.length - i } as CSSProperties}
                     >
-                      <img src={m.src} alt={m.name} loading="lazy" decoding="async" />
+                      <img src={m.src} alt="" loading="lazy" decoding="async" />
                     </span>
                   ))}
                 </span>
@@ -109,15 +100,14 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/placeholders/badge.svg" alt="" loading="lazy" decoding="async" />
+                <img src="/icons/googleworkspace.svg" alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Credential name</span>
-                <span className="agrid__cell-meta">Credential ID</span>
+                <span className="agrid__cell-title">Apps Script & Workflows</span>
+                <span className="agrid__cell-meta">Webhooks & Data Pipeline Automation</span>
               </span>
             </span>
 
@@ -126,18 +116,23 @@ export default function AboutGrid() {
                 <MapPin size={16} weight="fill" aria-hidden="true" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">{profile.location}</span>
-                <span className="agrid__cell-meta">Timezone · working hours</span>
+                <span className="agrid__cell-title">{profile.location || 'Philippines'}</span>
+                <span className="agrid__cell-meta">US (EST/CST/PST) & AU Shifts</span>
               </span>
             </span>
 
-            <a className="agrid__cell agrid__cell--wide" href="#">
+            <a
+              className="agrid__cell agrid__cell--wide"
+              href="https://github.com/joebertganay-afk"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/placeholders/logo.svg" alt="" loading="lazy" decoding="async" />
+                <img src="/icons/github.png" alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Community or affiliation</span>
-                <span className="agrid__cell-meta">Your role there</span>
+                <span className="agrid__cell-title">GitHub Portfolio</span>
+                <span className="agrid__cell-meta">@joebertganay-afk</span>
               </span>
               <ArrowUpRight className="agrid__cell-go" size={15} weight="bold" aria-hidden="true" />
             </a>
@@ -147,7 +142,7 @@ export default function AboutGrid() {
         <div className="agrid__portrait">
           <img
             src="/avatar.svg"
-            alt="Portrait placeholder"
+            alt="Joebert Ganay"
             loading="eager"
             decoding="async"
             width={400}

@@ -19,39 +19,27 @@ import { gymFunnel, bookingFunnel, websiteFunnel, type Funnel } from '@/data/fun
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
 
-/**
- * Home's showcase: one card per rail view, each an index of what that view
- * holds, each built from content the portfolio already ships. Every card is
- * a link. Nothing here invents a fact - the funnels, the tools, the clients
- * and the credentials are the same records the views render in full.
- *
- * Motion is transform-only on a clipped inner track, so a card never adds
- * height and Home stays a single viewport.
- */
-
 const thumbSrc = (f: Funnel) =>
   `/home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
 
 const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
 
 const OFFERS = [
-  { Icon: FunnelSimple, title: 'Service One', note: 'PLACEHOLDER one-liner' },
-  { Icon: Gear, title: 'Service Two', note: 'PLACEHOLDER one-liner' },
-  { Icon: AddressBook, title: 'Service Three', note: 'PLACEHOLDER one-liner' },
-  { Icon: Globe, title: 'Service Four', note: 'PLACEHOLDER one-liner' },
-  { Icon: AppWindow, title: 'Service Five', note: 'PLACEHOLDER one-liner' },
+  { Icon: FunnelSimple, title: 'Real Estate Virtual Assistance', note: 'Cold calling & lead nurturing' },
+  { Icon: Gear, title: 'Customer & Technical Support', note: '10+ years escalation & troubleshooting' },
+  { Icon: AddressBook, title: 'CRM & Pipeline Management', note: 'GoHighLevel, Zoho, Follow Up Boss' },
+  { Icon: Globe, title: 'Workflow Automation', note: 'Google Apps Script & integrations' },
+  { Icon: AppWindow, title: 'HR & Compliance Liaison', note: 'Statutory compliance & admin support' },
 ] as const
 
 const CLIENTS = [
-  { name: 'Client Name 1', role: 'PLACEHOLDER - your role for them', work: 'Tag · Tag · Tag', logo: '/placeholders/logo.svg' },
-  { name: 'Client Name 2', role: 'PLACEHOLDER - your role for them', work: 'Tag · Tag · Tag', logo: '/placeholders/logo.svg' },
-  { name: 'Client Name 3', role: 'PLACEHOLDER - your role for them', work: 'Tag · Tag · Tag' },
+  { name: 'Global Brokerages', role: 'Real Estate Operations Lead', work: 'Cold Calling · CRM · Pipelines', logo: '/placeholders/logo.svg' },
+  { name: 'Growth Teams', role: 'Technical Support Specialist', work: 'Zendesk · Ticketing · Escalations', logo: '/placeholders/logo.svg' },
+  { name: 'Business Owners', role: 'Senior Virtual Assistant', work: 'Data Management · Sales Outreach' },
 ]
 
-// Three photos of you, fanned. Small copies are fine - the fan shows them under 100px.
 const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
 
-/** The AI systems as a flat list: every leaf of the Projects tree, in order. */
 const leaves = (n: StackNode): StackNode[] =>
   n.children?.length ? n.children.flatMap(leaves) : [n]
 const AI_BUILDS = leaves(aiStack)
@@ -85,9 +73,9 @@ export default function HomeBento() {
 
   return (
     <nav className="bento" aria-label="Explore the portfolio">
-      {/* Projects: the funnel thumbnails drift upward on a looped track. */}
+      {/* Projects */}
       <Link to="/projects" className="bento__card bento__card--projects">
-        <CardHead Icon={FolderOpen} title="Projects" desc="PLACEHOLDER - one line on what your projects are." />
+        <CardHead Icon={FolderOpen} title="Projects" desc="Real estate pipelines, outreach campaigns & automation builds." />
         <div className="bento__media bento__reel" aria-hidden="true">
           <div className="bento__reel-track">
             {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((f, i) => (
@@ -99,9 +87,9 @@ export default function HomeBento() {
         </div>
       </Link>
 
-      {/* About: a fanned stack of photos. */}
+      {/* About */}
       <Link to="/about" className="bento__card bento__card--about">
-        <CardHead Icon={User} title="About" desc="PLACEHOLDER - one line about you." />
+        <CardHead Icon={User} title="About" desc="6+ years in real estate VA & 10+ years in client support." />
         <div className="bento__media bento__fan" aria-hidden="true">
           {PHOTOS.map((src, i) => (
             <span key={src} className="bento__photo" style={{ ['--i' as string]: i }}>
@@ -111,10 +99,9 @@ export default function HomeBento() {
         </div>
       </Link>
 
-      {/* AI builds: the systems from the Projects tree, two chip rows
-          scrolling against each other. */}
+      {/* AI Builds */}
       <Link to="/projects" className="bento__card bento__card--ai">
-        <CardHead Icon={Robot} title="AI Builds" desc="PLACEHOLDER - one line on your AI or side builds." />
+        <CardHead Icon={Robot} title="AI Builds" desc="Custom workflows, Apps Script integrations & Claude prompting." />
         <div className="bento__media bento__chips" aria-hidden="true">
           {toolRows.map((row, r) => (
             <div key={r} className="bento__chip-row" data-dir={r ? 'right' : 'left'}>
@@ -131,23 +118,23 @@ export default function HomeBento() {
         </div>
       </Link>
 
-      {/* Credentials: the badge that matters, on its plate. */}
+      {/* Credentials */}
       <Link to="/about" className="bento__card bento__card--creds">
-        <CardHead Icon={Medal} title="Credentials" desc="PLACEHOLDER - your main certification." />
+        <CardHead Icon={Medal} title="Credentials" desc="Certified GoHighLevel & CRM Operations Specialist." />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
             <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
           </span>
           <span className="bento__badge-tag">
             <SealCheck size={14} weight="fill" />
-            Your Credential
+            GoHighLevel Certified
           </span>
         </div>
       </Link>
 
-      {/* Services: the five offers as a compact index. */}
+      {/* Services */}
       <Link to="/services" className="bento__card bento__card--services">
-        <CardHead Icon={Stack} title="Services" desc="PLACEHOLDER - what you offer, and to whom." />
+        <CardHead Icon={Stack} title="Services" desc="End-to-end virtual assistance and technical support." />
         <ul className="bento__media bento__offers" role="list">
           {OFFERS.map(({ Icon, title, note }, i) => (
             <li key={title} className="bento__offer" style={{ '--i': i } as React.CSSProperties}>
@@ -166,9 +153,9 @@ export default function HomeBento() {
         </ul>
       </Link>
 
-      {/* Testimonials: client cards drifting up a clipped column. */}
+      {/* Testimonials */}
       <Link to="/testimonials" className="bento__card bento__card--quotes">
-        <CardHead Icon={Quotes} title="Testimonials" desc="PLACEHOLDER - one line on your clients." />
+        <CardHead Icon={Quotes} title="Testimonials" desc="Trusted by fast-moving global brokerages and teams." />
         <div className="bento__media bento__reviews" aria-hidden="true">
           <div className="bento__reviews-track">
             {[...CLIENTS, ...CLIENTS].map((c, i) => (

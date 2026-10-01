@@ -39,16 +39,24 @@ type Tool = {
 
 export const tools: Tool[] = [
   { name: 'Claude Code',          iconPath: '/icons/claude-code-logo.png' },
-  { name: 'Codex',                iconPath: '/icons/codex.svg',           color: '#000000' },
-  { name: 'Cursor',               iconPath: '/icons/cursor.svg',          color: '#0F172A' },
-  { name: 'Hermes AI',            iconPath: '/icons/nousresearch.svg',    color: '#18181B' },
+  { name: 'ChatGPT',              iconPath: '/icons/chatgpt.png',         color: '#10A37F' },
   { name: 'VS Code',              iconPath: '/icons/vscode.svg' },
   { name: 'GoHighLevel',          iconPath: '/icons/gohighlevel.png' },
-  { name: 'Lightspeed X-Series',  iconPath: '/icons/lightspeed.png' },
+  { name: 'Follow Up Boss',       iconPath: '/icons/googleworkspace.svg' },
+  { name: 'Zoho CRM',             iconPath: '/icons/zoho.png' },
+  { name: 'CallTools',            iconPath: '/icons/calltools.png' },
+  { name: 'Zillow',               iconPath: '/icons/zillow.png' },
+  { name: 'Realtor.com',          iconPath: '/icons/realtor.png' },
+  { name: 'Redfin',               iconPath: '/icons/redfin.png' },
+  { name: 'Genesys',              iconPath: '/icons/genesys.png' },
+  { name: 'Nice CXone',           iconPath: '/icons/nice-cxone.png' },
+  { name: 'Loom',                 iconPath: '/icons/loom.png' },
+  { name: 'Skype',                iconPath: '/icons/skype.png' },
+  { name: 'Microsoft Teams',      iconPath: '/icons/teams.png' },
+  { name: 'Zoom',                 iconPath: '/icons/zoom.png' },
+  { name: 'Squarespace',          iconPath: '/icons/squarespace.png' },
   { name: 'Google Workspace',     iconPath: '/icons/googleworkspace.svg' },
   { name: 'Zendesk',              iconPath: '/icons/zendesk.svg',         color: '#03363D' },
-  { name: 'Intercom',             iconPath: '/icons/intercom.svg',        color: '#1F8DED' },
-  { name: 'Slack',                iconPath: '/icons/slack.svg',           color: '#611F69' },
 ]
 
 export default function ToolsMarquee() {
@@ -83,8 +91,8 @@ export default function ToolsMarquee() {
                     aria-hidden="true"
                     loading="lazy"
                     decoding="async"
-                    width={20}
-                    height={20}
+width={32}
+height={32}
                   />
                 )}
               </span>
