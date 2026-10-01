@@ -3,7 +3,7 @@ import { Briefcase, SealCheck, Clock, type Icon } from '@/components/slab'
 export type SocialLink = {
   label: string
   href: string
-  iconPath: string
+  iconPath?: string
 }
 
 export type Stat = { value: string; label: string; Icon: Icon }
@@ -48,7 +48,7 @@ export const profile: Profile = {
     portraitAlt: 'Joebert Y. Ganay Portrait',
   },
   socials: [
-    { label: 'Facebook profile', href: 'https://www.facebook.com/profile.php?id=61574317804322', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/joebert-ganay-006664172', iconPath: '/icons/linkedin.svg' },
+    { label: 'Facebook profile', href: 'https://www.facebook.com/profile.php?id=1000806664172' },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/joebert-ganay-006664172' },
   ],
 }
