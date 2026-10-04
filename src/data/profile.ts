@@ -48,7 +48,8 @@ export const profile: Profile = {
     portraitAlt: 'Joebert Y. Ganay Portrait',
   },
   socials: [
-    { label: 'Facebook profile', href: 'https://www.facebook.com/profile.php?id=1000806664172' },
-    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/joebert-ganay-006664172' },
+    { label: 'Facebook profile', href: 'https://www.facebook.com/profile.php?id=1000806664172', iconPath: `${import.meta.env.BASE_URL}icons/facebook.svg` },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/joebert-ganay-006664172', iconPath: `${import.meta.env.BASE_URL}icons/linkedin.svg` },
+    { label: 'Email Me', href: 'mailto:joebertganay@gmail.com', iconPath: `${import.meta.env.BASE_URL}icons/email.svg` },
   ],
 }
