@@ -6,24 +6,24 @@ import { profile } from '@/data/profile'
  * Custom / Platform Icon Definitions
  * Adjust filenames below to match your exact filenames inside /public/icons/
  */
-const ZENDESK = { src: '/icons/zenddesk.svg', name: 'Zendesk' }
-const ZOHO = { src: '/icons/zoho.png', name: 'Zoho' }
-const GENESYS = { src: '/icons/genesys.png', name: 'Genesys' }
-const NICECXONE = { src: '/icons/nice-cxone.png', name: 'NICE CXone' } // Note: hyphenated if matching nice-cxone.png
+const ZENDESK = { src: `${import.meta.env.BASE_URL}icons/zendesk.svg`, name: 'Zendesk' }
+const ZOHO = { src: `${import.meta.env.BASE_URL}icons/zoho.png`, name: 'Zoho' }
+const GENESYS = { src: `${import.meta.env.BASE_URL}icons/genesys.png`, name: 'Genesys' }
+const NICECXONE = { src: `${import.meta.env.BASE_URL}icons/nice-cxone.png`, name: 'NICE CXone' }
 
-const CALLTOOLS = { src: '/icons/calltools.png', name: 'CallTools' }
-const ZILLOW = { src: '/icons/zillow.png', name: 'Zillow' }
-const REALTOR = { src: '/icons/realtor.png', name: 'Realtor.com' }
-const REDFIN = { src: '/icons/redfin.png', name: 'Redfin' }
-const GWS = { src: '/icons/googleworkspace.svg', name: 'Google Workspace' }
-const SKYPE = { src: '/icons/skype.png', name: 'Skype' }
+const CALLTOOLS = { src: `${import.meta.env.BASE_URL}icons/calltools.png`, name: 'CallTools' }
+const ZILLOW = { src: `${import.meta.env.BASE_URL}icons/zillow.png`, name: 'Zillow' }
+const REALTOR = { src: `${import.meta.env.BASE_URL}icons/realtor.png`, name: 'Realtor.com' }
+const REDFIN = { src: `${import.meta.env.BASE_URL}icons/redfin.png`, name: 'Redfin' }
+const GWS = { src: `${import.meta.env.BASE_URL}icons/googleworkspace.svg`, name: 'Google Workspace' }
+const SKYPE = { src: `${import.meta.env.BASE_URL}icons/skype.png`, name: 'Skype' }
 
-const CHATGPT = { src: '/icons/chatgpt.png', name: 'ChatGPT' }
-const CLAUDE = { src: '/icons/claude.png', name: 'Claude' }
-const VSCODE = { src: '/icons/vscode.svg', name: 'VS Code' }
+const CHATGPT = { src: `${import.meta.env.BASE_URL}icons/chatgpt.png`, name: 'ChatGPT' }
+const CLAUDE = { src: `${import.meta.env.BASE_URL}icons/claude.png`, name: 'Claude' }
+const VSCODE = { src: `${import.meta.env.BASE_URL}icons/vscode.svg`, name: 'VS Code' }
 
-const APPS_SCRIPT = { src: '/icons/googleworkspace.svg', name: 'Google Apps Script' }
-const GITHUB = { src: '/icons/github.png', name: 'GitHub' }
+const APPS_SCRIPT = { src: `${import.meta.env.BASE_URL}icons/googleworkspace.svg`, name: 'Google Apps Script' }
+const GITHUB = { src: `${import.meta.env.BASE_URL}icons/github.png`, name: 'GitHub' }
 
 type Capability = {
   index: string
@@ -103,7 +103,7 @@ export default function AboutGrid() {
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark agrid__cell-mark--img">
-                <img src="/icons/googleworkspace.svg" alt="" loading="lazy" decoding="async" />
+                <img src={`${import.meta.env.BASE_URL}icons/googleworkspace.svg`} alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">Apps Script & Workflows</span>
@@ -128,7 +128,7 @@ export default function AboutGrid() {
               rel="noreferrer"
             >
               <span className="agrid__cell-mark agrid__cell-mark--plain">
-                <img src="/icons/github.png" alt="" loading="lazy" decoding="async" />
+                <img src={`${import.meta.env.BASE_URL}icons/github.png`} alt="" loading="lazy" decoding="async" />
               </span>
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">GitHub Portfolio</span>
@@ -141,7 +141,7 @@ export default function AboutGrid() {
 
         <div className="agrid__portrait">
           <img
-            src="/avatar.svg"
+            src={`${import.meta.env.BASE_URL}avatar.svg`}
             alt="Joebert Ganay"
             loading="eager"
             decoding="async"
