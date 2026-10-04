@@ -40,8 +40,8 @@ const CLIENTS = [
 
 const PHOTOS = [
   profile.avatarSrc,
-  `${import.meta.env.BASE_URL}avatar.svg?2`,
-  `${import.meta.env.BASE_URL}avatar.svg?3`
+  `${import.meta.env.BASE_URL}icons/zendesk.svg`,
+  `${import.meta.env.BASE_URL}icons/gohighlevel.png`,
 ]
 
 const leaves = (n: StackNode): StackNode[] =>
