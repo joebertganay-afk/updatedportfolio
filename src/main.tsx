@@ -58,8 +58,8 @@ if (!container) throw new Error('Root element #root not found')
 
 createRoot(container).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
+<BrowserRouter basename="/updatedportfolio">
+  <Routes>
         {/* The shell owns the rail, the shader and the intro; each child
             renders into its one scrolling panel. */}
         <Route element={<App />}>
