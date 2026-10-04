@@ -9,22 +9,22 @@ export type QA = { q: string; a: string }
 export const FAQS: QA[] = [
   {
     q: 'What do you do?',
-    a: 'PLACEHOLDER - tell me what to put here: the kinds of work you take on, and who it is usually for.',
+    a: 'I provide end-to-end Virtual Assistant, Customer Support, and Technical Support services. I specialize in CRM management, sales outreach, data entry, client support ticketing, and workflow automation for growing businesses and real estate teams.',
   },
   {
     q: 'How fast can you start?',
-    a: 'PLACEHOLDER - tell me what to put here: your usual lead time for small fixes vs. larger projects, and your working hours.',
+    a: 'I am available to onboard immediately for both part-time and full-time roles. Depending on your platform requirements, I can typically integrate into your existing workflow within 24 to 48 hours.',
   },
   {
     q: 'How much do you charge?',
-    a: 'PLACEHOLDER - tell me what to put here: how you price (hourly, per project, retainer) and how a quote is put together.',
+    a: 'My rates are flexible and tailored to project scope, offering hourly rates, monthly retainers, or dedicated weekly packages. Contact me directly to discuss custom pricing for your specific operational needs.',
   },
   {
     q: 'Where are you based?',
-    a: 'PLACEHOLDER - tell me what to put here: your location or timezone, and which client timezones you overlap with.',
+    a: 'I am based in the Philippines and fully equipped for remote collaboration across international timezones. I regularly align my hours with US (EST, CST, PST) and Australian business schedules.',
   },
   {
     q: 'What happens after I write?',
-    a: 'PLACEHOLDER - tell me what to put here: how fast you reply and what the next step looks like.',
+    a: 'I respond to messages within a few hours. We can schedule a brief fit call or discuss project requirements directly over email to outline next steps and timeline expectations.',
   },
 ]
