@@ -141,8 +141,8 @@ export default function AboutGrid() {
 
         <div className="agrid__portrait">
           <img
-            src={`${import.meta.env.BASE_URL}avatar.svg`}
-            alt="Joebert Ganay"
+            src={profile.hero.portraitSrc}
+          alt={profile.hero.portraitAlt}
             loading="eager"
             decoding="async"
             width={400}
