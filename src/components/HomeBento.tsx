@@ -20,7 +20,7 @@ import { aiStack, type StackNode } from '@/data/ai-stack'
 import { profile } from '@/data/profile'
 
 const thumbSrc = (f: Funnel) =>
-  `/home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
+  `${import.meta.env.BASE_URL}home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
 
 const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
 
@@ -33,12 +33,16 @@ const OFFERS = [
 ] as const
 
 const CLIENTS = [
-  { name: 'Global Brokerages', role: 'Real Estate Operations Lead', work: 'Cold Calling · CRM · Pipelines', logo: '/placeholders/logo.svg' },
-  { name: 'Growth Teams', role: 'Technical Support Specialist', work: 'Zendesk · Ticketing · Escalations', logo: '/placeholders/logo.svg' },
-  { name: 'Business Owners', role: 'Senior Virtual Assistant', work: 'Data Management · Sales Outreach' },
+  { name: 'Global Brokerages', role: 'Real Estate Operations Lead', work: 'Cold calling · CRM · Pipelines', logo: `${import.meta.env.BASE_URL}placeholders/badge.svg` },
+  { name: 'Growth Teams', role: 'Technical Support Specialist', work: 'Zendesk · Ticketing · Escalations', logo: `${import.meta.env.BASE_URL}placeholders/badge.svg` },
+  { name: 'Business Owners', role: 'Senior Virtual Assistant', work: 'Data Management · Sales Outreach', logo: `${import.meta.env.BASE_URL}placeholders/badge.svg` },
 ]
 
-const PHOTOS = [profile.avatarSrc, '/avatar.svg?2', '/avatar.svg?3']
+const PHOTOS = [
+  profile.avatarSrc,
+  `${import.meta.env.BASE_URL}avatar.svg?2`,
+  `${import.meta.env.BASE_URL}avatar.svg?3`
+]
 
 const leaves = (n: StackNode): StackNode[] =>
   n.children?.length ? n.children.flatMap(leaves) : [n]
@@ -123,7 +127,7 @@ export default function HomeBento() {
         <CardHead Icon={Medal} title="Credentials" desc="Certified GoHighLevel & CRM Operations Specialist." />
         <div className="bento__media bento__badge" aria-hidden="true">
           <span className="bento__badge-ring">
-            <img src="/placeholders/badge.svg" alt="" width={72} height={72} />
+            <img src={`${import.meta.env.BASE_URL}placeholders/badge.svg`} alt="" width={72} height={72} />
           </span>
           <span className="bento__badge-tag">
             <SealCheck size={14} weight="fill" />
