@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react'
 import path from 'node:path'
 
 export default defineConfig({
+  base: '/updatedportfolio/',
   plugins: [react()],
   resolve: {
+    // ...
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
