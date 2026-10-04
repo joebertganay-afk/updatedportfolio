@@ -39,7 +39,7 @@ const CLIENTS = [
 ]
 
 const PHOTOS = [
-  profile.avatarSrc,
+  profile.hero.portraitSrc,
   `${import.meta.env.BASE_URL}icons/zendesk.svg`,
   `${import.meta.env.BASE_URL}icons/gohighlevel.png`,
 ]
