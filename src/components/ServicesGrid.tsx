@@ -41,20 +41,21 @@ const STAGES: Stage[] = [
   },
 ]
 
+
 /* ---------- The services ---------- */
 
-const GHL = '/icons/gohighlevel.png'
-const REACT = '/icons/ai/react.svg'
-const TAILWIND = '/icons/ai/tailwindcss.svg'
-const VITE = '/icons/ai/vite.svg'
-const CLOUDFLARE = '/icons/ai/cloudflare.svg'
-const N8N = '/icons/ai/n8n.svg'
-const OPENAI = '/icons/openai.svg'
-const GWS = '/icons/googleworkspace.svg'
-const SLACK = '/icons/slack.svg'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const EXPO = '/icons/ai/expo.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
+const GHL = `${import.meta.env.BASE_URL}icons/gohighlevel.png`
+const REACT = `${import.meta.env.BASE_URL}icons/ai/react.svg`
+const TAILWIND = `${import.meta.env.BASE_URL}icons/ai/tailwindcss.svg`
+const VITE = `${import.meta.env.BASE_URL}icons/ai/vite.svg`
+const CLOUDFLARE = `${import.meta.env.BASE_URL}icons/ai/cloudflare.svg`
+const N8N = `${import.meta.env.BASE_URL}icons/ai/n8n.svg`
+const OPENAI = `${import.meta.env.BASE_URL}icons/openai.svg`
+const GWS = `${import.meta.env.BASE_URL}icons/googleworkspace.svg`
+const SLACK = `${import.meta.env.BASE_URL}icons/slack.svg`
+const CLAUDE_CODE = `${import.meta.env.BASE_URL}icons/claude-code-logo.png`
+const EXPO = `${import.meta.env.BASE_URL}icons/ai/expo.svg`
+const CHROME = `${import.meta.env.BASE_URL}icons/ai/googlechrome.svg`
 
 type Service = {
   index: string
