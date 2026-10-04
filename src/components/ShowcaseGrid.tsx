@@ -32,7 +32,7 @@ export default function ShowcaseGrid() {
             <span className="ktools__vote-ask">Placeholder</span>
           </p>
           <a className="ktools__vote-frame ktools__vote-card" href="#">
-            <img src="/placeholders/badge.svg" alt="" width="48" height="48" />
+            <img src={`${import.meta.env.BASE_URL}placeholders/badge.svg`} alt="" width="48" height="48" />
             <span className="ktools__vote-text">
               PLACEHOLDER - a badge, award or launch link
             </span>
