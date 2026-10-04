@@ -32,7 +32,10 @@ export const profile: Profile = {
   firstName: 'Joebert',
   handle: '@joebertganay',
   role: 'Virtual Assistant · Customer & Technical Support Specialist · HR & Compliance Liaison',
-  avatarSrc: `${import.meta.env.BASE_URL}joebeth.jpg`, // Restores main left sidebar photo
+  
+  // 1. MAIN LEFT SIDEBAR (Regular photo: joebeth.jpg)
+  avatarSrc: `${import.meta.env.BASE_URL}joebeth.jpg`,
+
   verifiedLabel: 'Certified GoHighLevel & CRM Specialist',
   email: 'joebertganay@gmail.com',
   location: 'Philippines / International Shifts',
@@ -44,7 +47,10 @@ export const profile: Profile = {
   displayName: { line1: 'Reliable Support,', line2: 'Scaled for Growth.' },
   hero: {
     body: 'I help businesses stay organized and grow by providing reliable Virtual Assistant, Customer Support, and Technical Support services. With over 10 years of experience in customer service and troubleshooting, I specialize in client communication, operations support, data management, and sales outreach. My goal is to help business owners save time, improve customer satisfaction, and focus on scaling their business.',
-    portraitSrc: `${import.meta.env.BASE_URL}avatar.png`, // Uses avatar.png for the About page portrait box
+    
+    // 2. ABOUT SECTION SIDE PORTRAIT BOX (Graduation photo: avatar.png)
+    portraitSrc: `${import.meta.env.BASE_URL}avatar.png`,
+    
     portraitAlt: 'Joebert Y. Ganay Portrait',
   },
   socials: [
