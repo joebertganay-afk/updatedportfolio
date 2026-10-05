@@ -2,30 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { X } from '@/components/slab'
 
-/**
- * WorkflowSamples
- *
- * A horizontally scrolling marquee of project screenshots. The strip loops
- * seamlessly; clicking any frame opens the full image in a faux macOS window
- * over the page. Swap the images in SAMPLES for your own.
- *
- * Marquee: the list is duplicated so the CSS keyframe can translate -50% and
- * land the reset on a seamless seam. The track pauses on hover/focus so frames
- * are easy to click. The duplicate half is aria-hidden + removed from the tab
- * order so screen readers and keyboard users see each frame once.
- *
- * Modal: createPortal to body (escapes any transformed ancestor), Escape +
- * backdrop close, body scroll lock, focus moved into the dialog and returned to
- * the trigger on close - the same pattern as the other in-page previews.
- */
-
 type Sample = { file: string; label: string }
 
 const SAMPLES: Sample[] = [
-  { file: 'project-1.jpg', label: 'Project Screenshot 1' },
-  { file: 'project-2.jpg', label: 'Project Screenshot 2' },
-  { file: 'project-3.jpg', label: 'Project Screenshot 3' },
-  { file: 'project-4.jpg', label: 'Project Screenshot 4' },
+  { file: 'project-1.jpg', label: 'United GUARDIANS Web Registration Form' },
+  { file: 'project-2.jpg', label: 'Google Sheets Automated Multi-Tab Database' },
+  { file: 'project-3.jpg', label: 'Google Apps Script Backend & Endpoint Processing' },
+  { file: 'project-4.jpg', label: 'Automated Google Drive Media Ingestion' },
 ]
 
 const srcOf = (s: Sample) => `/placeholders/${encodeURIComponent(s.file)}`
@@ -64,7 +47,7 @@ export default function WorkflowSamples() {
   return (
     <section className="wfs" id="workflow-samples" aria-labelledby="wfs-heading" data-reveal>
       <p className="wfs__caption" id="wfs-heading">
-        PLACEHOLDER - tell me what to put here: one line on what these screenshots show.
+        Live registration system workflow featuring automated Google Apps Script processing, multi-wing Google Sheets routing, and drive photo ingestion.
       </p>
 
       <div className="wfs__strip">
