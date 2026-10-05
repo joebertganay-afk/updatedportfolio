@@ -10,7 +10,11 @@ import { websiteFunnel } from '@/data/funnels'
 const FunnelBarrel = lazy(() => import('./FunnelBarrel'))
 
 /** Helper to resolve correct base path for GitHub Pages subdirectories */
-const getBaseUrl = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+const getBaseUrl = (path: string): string => {
+  const baseUrl = import.meta.env.BASE_URL || '/'
+  const cleanPath = path.replace(/^\//, '')
+  return baseUrl.endsWith('/') ? `${baseUrl}${cleanPath}` : `${baseUrl}/${cleanPath}`
+}
 
 /** Only the strip of macOS windows, drifting on the backdrop. No window. */
 export function AutomationsPanel() {
@@ -89,21 +93,21 @@ const BUILDS: Build[] = [
   { 
     id: 'ticket-routing', 
     label: 'Helpdesk SLA & Escalation Flow', 
-    src: getBaseUrl("helpdesk-routing-automation/index.html"), 
+    src: getBaseUrl("sample-plan.html"), 
     path: '/helpdesk-routing-automation', 
     Icon: Ticket 
   },
   { 
     id: 'crm-pipeline', 
     label: 'CRM Lead Pipeline & Automated Outreach', 
-    src: getBaseUrl("crm-pipeline-automation/index.html"), 
+    src: getBaseUrl("sample-plan.html"), 
     path: '/crm-pipeline-automation', 
     Icon: Robot 
   },
   { 
     id: 'united-guardians', 
     label: 'United GUARDIANS Web Ingestion & Database Automation', 
-    src: getBaseUrl("united-guardians-automation/index.html"), 
+    src: getBaseUrl("sample-plan.html"), 
     path: '/united-guardians-automation', 
     Icon: FlowArrow 
   },
