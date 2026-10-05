@@ -82,7 +82,7 @@ export function PlanPanel() {
         host="joebertganay-afk.github.io"
         path="/updatedportfolio/united-guardians-automation"
       />
-      <LiveFrame src={getBaseUrl("index.html")} title="United GUARDIANS Automation Architecture" />
+      <LiveFrame src={getBaseUrl("sample-plan.html")} title="United GUARDIANS Automation Architecture" />
     </div>
   )
 }
@@ -93,21 +93,21 @@ const BUILDS: Build[] = [
   { 
     id: 'ticket-routing', 
     label: 'Helpdesk SLA & Escalation Flow', 
-    src: getBaseUrl("index.html"), 
+    src: getBaseUrl("sample-plan.html"), 
     path: '/updatedportfolio/helpdesk-routing-automation', 
     Icon: Ticket 
   },
   { 
     id: 'crm-pipeline', 
     label: 'CRM Lead Pipeline & Automated Outreach', 
-    src: getBaseUrl("index.html"), 
+    src: getBaseUrl("sample-plan.html"), 
     path: '/updatedportfolio/crm-pipeline-automation', 
     Icon: Robot 
   },
   { 
     id: 'united-guardians', 
     label: 'United GUARDIANS Web Ingestion & Database Automation', 
-    src: getBaseUrl("index.html"), 
+    src: getBaseUrl("sample-plan.html"), 
     path: '/updatedportfolio/united-guardians-automation', 
     Icon: FlowArrow 
   },
