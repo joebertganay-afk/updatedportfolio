@@ -5,13 +5,13 @@ import { X } from '@/components/slab'
 type Sample = { file: string; label: string }
 
 const SAMPLES: Sample[] = [
-  { file: 'project-1.jpg', label: 'United GUARDIANS Web Registration Form' },
+  { file: 'project-1.png', label: 'United GUARDIANS Web Registration Form' },
   { file: 'project-2.jpg', label: 'Google Sheets Automated Multi-Tab Database' },
-  { file: 'project-3.jpg', label: 'Google Apps Script Backend & Endpoint Processing' },
-  { file: 'project-4.jpg', label: 'Automated Google Drive Media Ingestion' },
+  { file: 'project-3.jpg', label: 'Google Drive Media Storage Ingestion' },
+  { file: 'project-4.jpg', label: 'Google Apps Script Backend Architecture' },
 ]
 
-const srcOf = (s: Sample) => `/placeholders/${encodeURIComponent(s.file)}`
+const srcOf = (s: Sample) => `/${encodeURIComponent(s.file)}`
 
 export default function WorkflowSamples() {
   const doubled = useMemo(() => [...SAMPLES, ...SAMPLES], [])
