@@ -40,9 +40,9 @@ figure{margin:0}
 figcaption{color:var(--muted);font-size:.85rem;padding:8px 4px 0}
 .shot.missing{min-height:220px;display:grid;place-items:center;color:var(--muted);font-size:.9rem;padding:24px;text-align:center;cursor:default}
 .shot.missing img{display:none}
-.shot.missing::before{content:attr(data-file) " not found. Ensure this asset exists in your public folder.";color:var(--muted)}
+.shot.missing::before{content:attr(data-file) " not found. Ensure this file is present in your public folder.";color:var(--muted)}
 
-/* Expanded Lightbox / Full-Screen View */
+/* Fullscreen Lightbox Modal */
 dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh;overflow:visible}
 dialog::backdrop{background:rgba(3,7,15,.92);backdrop-filter:blur(6px)}
 dialog img{display:block;max-width:92vw;max-height:88vh;border-radius:8px;border:1px solid var(--line)}
@@ -59,61 +59,66 @@ dialog button{position:absolute;top:-14px;right:-14px;width:36px;height:36px;bor
 <div class="wrap">
  <header>
   <h1>United GUARDIANS Automated Registration</h1>
-  <p>How a member's registration flows seamlessly from web ingestion to automated Google Sheets database sync and Google Drive media storage. Click any screenshot to open high-resolution view.</p>
+  <p>How a member's registration travels from the web form into a Google Sheet and a Drive folder, with no manual data entry. Select any screenshot to view it full size.</p>
  </header>
 
  <ol class="steps">
-  <!-- Step 1 -->
+  <!-- Step 1: Registration Form & Receipt -->
   <li class="step">
    <div class="rail"><span class="node">1</span></div>
    <div>
     <h2>Members register on the web form</h2>
-    <p class="lead">A multi-wing web form collects personal details, document uploads, and data privacy consent payloads with real-time validation.</p>
+    <p class="lead">A multi-wing form collects personal details, a photo, and the data privacy consent. After submitting, the member gets a receipt with a reference number to screenshot.</p>
     <ul class="tags"><li>Web Ingestion</li><li>Frontend UI</li></ul>
-    <div class="media">
+    <div class="media two">
      <figure>
       <div class="frame"><div class="bar"><i></i><i></i><i></i></div>
-      <button class="shot" data-file="project-1.png"><img src="./project-1.png" alt="Registration Form Interface"></button></div>
-      <figcaption>Intake form interface built for member registration.</figcaption>
+      <button class="shot" data-file="project-1.png"><img src="./project-1.png" alt="Registration form with member details pre-filled from the link"></button></div>
+      <figcaption>The intake form, opened from a pre-filled link.</figcaption>
+     </figure>
+     <figure>
+      <div class="frame"><div class="bar"><i></i><i></i><i></i></div>
+      <button class="shot" data-file="project-5.png"><img src="./project-5.png" alt="Registration receipt showing the reference number"></button></div>
+      <figcaption>The receipt shown after submitting.</figcaption>
      </figure>
     </div>
    </div>
   </li>
 
-  <!-- Step 2 -->
+  <!-- Step 2: Apps Script Backend -->
   <li class="step">
    <div class="rail"><span class="node">2</span></div>
    <div>
-    <h2>Apps Script processes incoming web payloads</h2>
-    <p class="lead">A serverless Google Apps Script <code>doPost</code> handler handles every submission. LockService ensures concurrent submissions are safely processed without data collisions.</p>
-    <ul class="tags"><li>Google Apps Script</li><li>doPost Handler</li><li>LockService</li></ul>
+    <h2>Apps Script receives and records each entry</h2>
+    <p class="lead">A serverless Google Apps Script handles every submission. LockService makes sure two members submitting at the same moment never overwrite each other, then the script writes a row to the matching wing's tab.</p>
+    <ul class="tags"><li>Google Apps Script</li><li>doPost handler</li><li>LockService</li></ul>
     <div class="media">
      <figure>
       <div class="frame"><div class="bar"><i></i><i></i><i></i></div>
-      <button class="shot" data-file="project-2.jpg"><img src="./project-2.jpg" alt="Backend Apps Script Handler"></button></div>
-      <figcaption>Serverless Apps Script executing data routing and handling rules.</figcaption>
+      <button class="shot" data-file="project-2.jpg"><img src="./project-2.jpg" alt="Google Sheet with one tab per wing and sample registration rows"></button></div>
+      <figcaption>The Registration Database, with one tab per wing. Sample data only.</figcaption>
      </figure>
     </div>
    </div>
   </li>
 
-  <!-- Step 3 -->
+  <!-- Step 3: Google Sheets & Drive Sync -->
   <li class="step">
    <div class="rail"><span class="node">3</span></div>
    <div>
-    <h2>Data and uploaded media are stored automatically</h2>
-    <p class="lead">Structured registration entries write directly to Google Sheets database tabs, while uploaded files and media automatically store in designated Google Drive folders.</p>
+    <h2>Data and uploaded photos are stored automatically</h2>
+    <p class="lead">Each registration lands in the Google Sheets database while the member's photo is saved to a Google Drive folder, named with the same reference number so both records match.</p>
     <ul class="tags"><li>Google Sheets DB</li><li>Google Drive API</li></ul>
     <div class="media two">
      <figure>
       <div class="frame"><div class="bar"><i></i><i></i><i></i></div>
       <button class="shot" data-file="project-3.jpg"><img src="./project-3.jpg" alt="Google Sheets Database"></button></div>
-      <figcaption>Google Sheets registration database organized by wing tabs.</figcaption>
+      <figcaption>The Registration Database, with one tab per wing.</figcaption>
      </figure>
      <figure>
       <div class="frame"><div class="bar"><i></i><i></i><i></i></div>
       <button class="shot" data-file="project-4.jpg"><img src="./project-4.jpg" alt="Google Drive Storage Folder"></button></div>
-      <figcaption>Google Drive media storage folder synchronized in real time.</figcaption>
+      <figcaption>The Drive folder with uploaded media and database records.</figcaption>
      </figure>
     </div>
    </div>
@@ -121,7 +126,7 @@ dialog button{position:absolute;top:-14px;right:-14px;width:36px;height:36px;bor
  </ol>
 </div>
 
-<!-- Fullscreen Image Dialog -->
+<!-- Lightbox Modal -->
 <dialog id="lb" aria-label="Enlarged screenshot"><img alt=""><button type="button" aria-label="Close">&times;</button></dialog>
 
 <script>
