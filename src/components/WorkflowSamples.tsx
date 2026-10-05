@@ -2,17 +2,20 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { X } from '@/components/slab'
 
-type Sample = { file: string; label: string }
+// Direct public asset imports ensure Vite resolves the exact relative URLs on GitHub Pages
+import proj1 from '/project-1.png?url'
+import proj2 from '/project-2.jpg?url'
+import proj3 from '/project-3.jpg?url'
+import proj4 from '/project-4.jpg?url'
+
+type Sample = { src: string; label: string }
 
 const SAMPLES: Sample[] = [
-  { file: 'project-1.png', label: 'United GUARDIANS Web Registration Form' },
-  { file: 'project-2.jpg', label: 'Google Sheets Automated Multi-Tab Database' },
-  { file: 'project-3.jpg', label: 'Google Drive Media Storage Ingestion' },
-  { file: 'project-4.jpg', label: 'Google Apps Script Backend Architecture' },
+  { src: proj1, label: 'United GUARDIANS Web Registration Form' },
+  { src: proj2, label: 'Google Sheets Automated Multi-Tab Database' },
+  { src: proj3, label: 'Google Drive Media Storage Ingestion' },
+  { src: proj4, label: 'Google Apps Script Backend Architecture' },
 ]
-
-// Fix: Prepend Vite's base path so GitHub Pages routes to /updatedportfolio/project-1.png
-const srcOf = (s: Sample) => `${import.meta.env.BASE_URL}${encodeURIComponent(s.file)}`
 
 export default function WorkflowSamples() {
   const doubled = useMemo(() => [...SAMPLES, ...SAMPLES], [])
@@ -57,7 +60,7 @@ export default function WorkflowSamples() {
             const clone = i >= SAMPLES.length
             return (
               <button
-                key={`${s.file}-${i}`}
+                key={`${s.label}-${i}`}
                 type="button"
                 className="wfs__frame"
                 onClick={(e) => open(s, e.currentTarget)}
@@ -72,7 +75,7 @@ export default function WorkflowSamples() {
                 </span>
                 <img
                   className="wfs__img"
-                  src={srcOf(s)}
+                  src={s.src}
                   alt={clone ? '' : `${s.label} screenshot`}
                   loading="lazy"
                   decoding="async"
@@ -113,7 +116,7 @@ export default function WorkflowSamples() {
                 </button>
               </div>
               <div className="wfs__imgwrap">
-                <img className="wfs__full" src={srcOf(active)} alt={`${active.label} screenshot`} />
+                <img className="wfs__full" src={active.src} alt={`${active.label} screenshot`} />
               </div>
             </div>
           </div>,
