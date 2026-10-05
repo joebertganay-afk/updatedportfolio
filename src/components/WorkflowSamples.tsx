@@ -11,7 +11,8 @@ const SAMPLES: Sample[] = [
   { file: 'project-4.jpg', label: 'Google Apps Script Backend Architecture' },
 ]
 
-const srcOf = (s: Sample) => `/${encodeURIComponent(s.file)}`
+// Fix: Prepend Vite's base path so GitHub Pages routes to /updatedportfolio/project-1.png
+const srcOf = (s: Sample) => `${import.meta.env.BASE_URL}${encodeURIComponent(s.file)}`
 
 export default function WorkflowSamples() {
   const doubled = useMemo(() => [...SAMPLES, ...SAMPLES], [])
