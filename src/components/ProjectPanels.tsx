@@ -9,6 +9,9 @@ import { websiteFunnel } from '@/data/funnels'
 
 const FunnelBarrel = lazy(() => import('./FunnelBarrel'))
 
+/** Helper to resolve correct base path for GitHub Pages subdirectories */
+const getBaseUrl = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 /** Only the strip of macOS windows, drifting on the backdrop. No window. */
 export function AutomationsPanel() {
   return (
@@ -75,7 +78,7 @@ export function PlanPanel() {
         host="joebertganay-afk.github.io"
         path="/united-guardians-automation"
       />
-      <LiveFrame src="/placeholders/sample-plan.html" title="United GUARDIANS Automation Architecture" />
+      <LiveFrame src={getBaseUrl("sample-plan.html")} title="United GUARDIANS Automation Architecture" />
     </div>
   )
 }
@@ -84,25 +87,25 @@ type Build = { id: string; label: string; src: string; path: string; Icon: Icon 
 
 const BUILDS: Build[] = [
   { 
-    id: 'united-guardians', 
-    label: 'United GUARDIANS Web Ingestion & Database Automation', 
-    src: 'https://joebertganay-afk.github.io/updatedportfolio/', 
-    path: '/united-guardians-automation', 
-    Icon: FlowArrow 
+    id: 'ticket-routing', 
+    label: 'Helpdesk SLA & Escalation Flow', 
+    src: getBaseUrl("helpdesk-routing-automation/index.html"), 
+    path: '/helpdesk-routing-automation', 
+    Icon: Ticket 
   },
   { 
     id: 'crm-pipeline', 
     label: 'CRM Lead Pipeline & Automated Outreach', 
-    src: '/placeholders/sample-plan.html?doc=2', 
+    src: getBaseUrl("crm-pipeline-automation/index.html"), 
     path: '/crm-pipeline-automation', 
     Icon: Robot 
   },
   { 
-    id: 'ticket-routing', 
-    label: 'Helpdesk SLA & Escalation Flow', 
-    src: '/placeholders/sample-plan.html?doc=3', 
-    path: '/helpdesk-routing-automation', 
-    Icon: Ticket 
+    id: 'united-guardians', 
+    label: 'United GUARDIANS Web Ingestion & Database Automation', 
+    src: getBaseUrl("united-guardians-automation/index.html"), 
+    path: '/united-guardians-automation', 
+    Icon: FlowArrow 
   },
 ]
 
