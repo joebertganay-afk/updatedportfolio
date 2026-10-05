@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { Ticket, Robot, FlowArrow, type Icon } from '@/components/slab'
+import { FlowArrow, Robot, Ticket, type Icon } from '@/components/slab'
 import { lazy, Suspense } from 'react'
 import WorkflowSamples from './WorkflowSamples'
 import AIStackGrid from './AIStackGrid'
@@ -8,12 +8,6 @@ import { useFunnelModal } from './FunnelModal'
 import { websiteFunnel } from '@/data/funnels'
 
 const FunnelBarrel = lazy(() => import('./FunnelBarrel'))
-
-/**
- * What the Projects dialogs show. Each panel is the work itself, on screen
- * the moment the dialog opens - no section chrome to read past and no second
- * dialog to click into.
- */
 
 /** Only the strip of macOS windows, drifting on the backdrop. No window. */
 export function AutomationsPanel() {
@@ -24,8 +18,7 @@ export function AutomationsPanel() {
   )
 }
 
-/** A plain mac window with a scrolling body, for the sections that are
- *  pages rather than frames. */
+/** A plain mac window with a scrolling body for sections that are pages. */
 function SectionWindow({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="ppanel ppanel--window">
@@ -44,8 +37,7 @@ function SectionWindow({ label, children }: { label: string; children: ReactNode
   )
 }
 
-/** Only the barrel, spinning on the backdrop. Its own page preview still
- *  stacks above (z 9000). */
+/** Barrel spinning on the backdrop. */
 export function BarrelPanel() {
   const { openFull, modal } = useFunnelModal()
   return (
@@ -58,7 +50,7 @@ export function BarrelPanel() {
   )
 }
 
-/** The systems as a logo-first grid, in a scrolling window. */
+/** Systems grid inside scrolling window. */
 export function AIWindow() {
   return (
     <SectionWindow label="Your systems">
@@ -66,6 +58,7 @@ export function AIWindow() {
     </SectionWindow>
   )
 }
+
 export function AppsWindow() {
   return (
     <SectionWindow label="Your apps">
@@ -74,38 +67,55 @@ export function AppsWindow() {
   )
 }
 
-/** The plan document, full height, straight away. */
+/** The main documentation/plan panel. */
 export function PlanPanel() {
   return (
     <div className="ppanel ppanel--frame">
       <FrameBar
-        host="yourdomain.com"
-        path="/sample-plan"
+        host="joebertganay-afk.github.io"
+        path="/united-guardians-automation"
       />
-      <LiveFrame src="/placeholders/sample-plan.html" title="Sample document" />
+      <LiveFrame src="/placeholders/sample-plan.html" title="United GUARDIANS Automation Architecture" />
     </div>
   )
 }
 
-/** `src` is a local page framed in the panel; `path` is what the fake
- *  address bar shows. Point these at your own pages. */
 type Build = { id: string; label: string; src: string; path: string; Icon: Icon }
 
 const BUILDS: Build[] = [
-  { id: 'ticketing', label: 'Featured Project One', src: '/placeholders/sample-plan.html?doc=1', path: '/featured-one', Icon: Ticket },
-  { id: 'framework', label: 'Featured Project Two', src: '/placeholders/sample-plan.html?doc=2', path: '/featured-two', Icon: Robot },
-  { id: 'workflow', label: 'Featured Project Three', src: '/placeholders/sample-plan.html?doc=3', path: '/featured-three', Icon: FlowArrow },
+  { 
+    id: 'united-guardians', 
+    label: 'United GUARDIANS Web Ingestion & Database Automation', 
+    src: 'https://joebertganay-afk.github.io/updatedportfolio/', 
+    path: '/united-guardians-automation', 
+    Icon: FlowArrow 
+  },
+  { 
+    id: 'crm-pipeline', 
+    label: 'CRM Lead Pipeline & Automated Outreach', 
+    src: '/placeholders/sample-plan.html?doc=2', 
+    path: '/crm-pipeline-automation', 
+    Icon: Robot 
+  },
+  { 
+    id: 'ticket-routing', 
+    label: 'Helpdesk SLA & Escalation Flow', 
+    src: '/placeholders/sample-plan.html?doc=3', 
+    path: '/helpdesk-routing-automation', 
+    Icon: Ticket 
+  },
 ]
 
-/** One build, framed, open on arrival. */
+/** Individual framed build panels. */
 function BuildPanel({ build }: { build: Build }) {
   return (
     <div className="ppanel ppanel--frame">
-      <FrameBar host="yourdomain.com" path={build.path} />
+      <FrameBar host="joebertganay-afk.github.io" path={build.path} />
       <LiveFrame src={build.src} title={build.label} />
     </div>
   )
 }
+
 export const TicketingPanel = () => <BuildPanel build={BUILDS[0]} />
 export const FrameworkPanel = () => <BuildPanel build={BUILDS[1]} />
 export const WorkflowPanel = () => <BuildPanel build={BUILDS[2]} />
@@ -126,28 +136,30 @@ function FrameBar({ host, path }: { host: string; path: string }) {
   )
 }
 
-/** Matches `pmodal-panel` (420ms). Same-site frames share the portfolio's
- *  main thread, so loading one mid-animation stalled the open by 100ms+. */
 const FRAME_DELAY_MS = 440
 
 function LiveFrame({ src, title }: { src: string; title: string }) {
   const [ready, setReady] = useState(false)
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
     const id = window.setTimeout(() => setMounted(true), FRAME_DELAY_MS)
     return () => window.clearTimeout(id)
   }, [])
+
   return (
     <div className="ppanel__stage">
       {!ready && <div className="ppanel__skeleton" aria-hidden="true" />}
-      {mounted && <iframe
-        className="ppanel__iframe"
-        src={src}
-        title={title}
-        loading="eager"
-        onLoad={() => setReady(true)}
-        data-ready={ready ? 'true' : 'false'}
-      />}
+      {mounted && (
+        <iframe
+          className="ppanel__iframe"
+          src={src}
+          title={title}
+          loading="eager"
+          onLoad={() => setReady(true)}
+          data-ready={ready ? 'true' : 'false'}
+        />
+      )}
     </div>
   )
 }
