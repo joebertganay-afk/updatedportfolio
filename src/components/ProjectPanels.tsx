@@ -150,8 +150,16 @@ function LiveFrame({ src, title }: { src: string; title: string }) {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const id = window.setTimeout(() => setMounted(true), FRAME_DELAY_MS)
-    return () => window.clearTimeout(id)
+    // Mount the iframe after initial delay
+    const mountId = window.setTimeout(() => setMounted(true), FRAME_DELAY_MS)
+    
+    // Fallback: Force reveal iframe after 1.2s even if onLoad fails to fire
+    const readyId = window.setTimeout(() => setReady(true), FRAME_DELAY_MS + 800)
+
+    return () => {
+      window.clearTimeout(mountId)
+      window.clearTimeout(readyId)
+    }
   }, [])
 
   return (
