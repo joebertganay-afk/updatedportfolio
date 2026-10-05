@@ -42,36 +42,54 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-      max-width: 900px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .card {
       background: #1e293b;
       border: 1px solid #334155;
-      border-radius: 10px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-img-wrapper {
+      width: 100%;
+      height: 180px;
+      background: #0f172a;
+      overflow: hidden;
+      border-bottom: 1px solid #334155;
+    }
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body {
       padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .card h3 {
       font-size: 1rem;
       color: #f1f5f9;
       margin: 0 0 0.5rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
     .card p {
       font-size: 0.875rem;
       color: #94a3b8;
       line-height: 1.5;
-      margin: 0;
+      margin: 0 0 1rem 0;
     }
     .tech-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.375rem;
-      margin-top: 1rem;
     }
     .tag {
       background: #0f172a;
@@ -87,35 +105,59 @@
 
   <div class="header">
     <h1>United GUARDIANS Automated Registration</h1>
-    <p>Serverless web ingestion, automated database sync, and Drive storage routing</p>
+    <p>Visual walkthrough of multi-wing web registration interface, automated Google Sheets DB sync, and Drive media storage</p>
     <span class="badge">Live System Architecture</span>
   </div>
 
   <div class="grid">
+    <!-- Card 1 -->
     <div class="card">
-      <h3>1. Web Registration Form</h3>
-      <p>Multi-wing web ingestion interface capturing candidate registrations, credentials, and payload files with real-time validation.</p>
-      <div class="tech-tags">
-        <span class="tag">HTML5 / JS</span>
-        <span class="tag">Web Ingestion</span>
+      <div class="card-img-wrapper">
+        <img src="../project-1.png" alt="Registration Interface Preview" onError="this.src='../project-2.jpg'">
+      </div>
+      <div class="card-body">
+        <div>
+          <h3>1. Web Registration Form</h3>
+          <p>Multi-wing web registration interface capturing user inputs, document uploads, and validation payloads.</p>
+        </div>
+        <div class="tech-tags">
+          <span class="tag">Web Ingestion</span>
+          <span class="tag">Frontend UI</span>
+        </div>
       </div>
     </div>
 
+    <!-- Card 2 -->
     <div class="card">
-      <h3>2. Apps Script Backend</h3>
-      <p>Custom <code>doPost</code> handler processing incoming web payloads, validating payloads, and handling concurrency via LockService.</p>
-      <div class="tech-tags">
-        <span class="tag">Google Apps Script</span>
-        <span class="tag">LockService</span>
+      <div class="card-img-wrapper">
+        <img src="../project-2.jpg" alt="Backend Apps Script Automation" onError="this.src='../project-3.jpg'">
+      </div>
+      <div class="card-body">
+        <div>
+          <h3>2. Google Apps Script Backend</h3>
+          <p>Serverless <code>doPost</code> handler processing incoming web payloads and ensuring concurrency via LockService.</p>
+        </div>
+        <div class="tech-tags">
+          <span class="tag">Google Apps Script</span>
+          <span class="tag">LockService</span>
+        </div>
       </div>
     </div>
 
+    <!-- Card 3 -->
     <div class="card">
-      <h3>3. Database & Media Sync</h3>
-      <p>Instant sync of processed candidate records to Google Sheets DB alongside file payload routing directly into dedicated Google Drive folders.</p>
-      <div class="tech-tags">
-        <span class="tag">Google Sheets DB</span>
-        <span class="tag">Google Drive API</span>
+      <div class="card-img-wrapper">
+        <img src="../project-3.jpg" alt="Database & Storage Sync" onError="this.src='../project-4.jpg'">
+      </div>
+      <div class="card-body">
+        <div>
+          <h3>3. Database & Media Sync</h3>
+          <p>Automated database routing to Google Sheets DB alongside file storage synchronization into Google Drive folders.</p>
+        </div>
+        <div class="tech-tags">
+          <span class="tag">Google Sheets DB</span>
+          <span class="tag">Google Drive API</span>
+        </div>
       </div>
     </div>
   </div>
