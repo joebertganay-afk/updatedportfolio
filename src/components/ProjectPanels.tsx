@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Wrapper component to match your site's browser/window UI frame
-function SectionWindow({ label, children }: { label: string; children: React.ReactNode }) {
+export function SectionWindow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="ppanel ppanel--frame">
       <div className="ppanel__topbar">
@@ -18,6 +18,10 @@ function SectionWindow({ label, children }: { label: string; children: React.Rea
     </div>
   );
 }
+
+// Aliases for windows requested by ProjectsGrid.tsx
+export const AIWindow = SectionWindow;
+export const AppsWindow = SectionWindow;
 
 // 1. SUPPORT ESCALATION & SLA OPERATIONS PANEL
 export function TicketingPanel() {
@@ -302,4 +306,17 @@ export function WorkflowPanel() {
       </div>
     </SectionWindow>
   );
+}
+
+// ADDITIONAL PANELS EXPECTED BY PROJECTSGRID.TSX
+export function AutomationsPanel() {
+  return <FrameworkPanel />;
+}
+
+export function PlanPanel() {
+  return <WorkflowPanel />;
+}
+
+export function BarrelPanel() {
+  return <TicketingPanel />;
 }
