@@ -126,7 +126,7 @@ function BuildPanel({ build }: { build: Build }) {
 export function TicketingPanel({ onClose }: { onClose?: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-5xl bg-[#0b1220] border border-[#24334f] rounded-2xl p-6 md:p-10 text-[#e6edf7] shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-5xl bg-[#0b1220] border border-[#24334f] rounded-2xl p-6 md:p-10 text-[#e6edf7] shadow-2xl my-8 max-h-[85vh] overflow-y-auto">
         {/* Close Button */}
         {onClose && (
           <button 
