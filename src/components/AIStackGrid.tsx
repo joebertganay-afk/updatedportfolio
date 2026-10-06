@@ -2,13 +2,6 @@ import { aiStack, type StackNode } from '@/data/ai-stack'
 
 /**
  * The AI systems as a logo-first grid, for the Projects pop-up.
- *
- * The tree (AIStack.tsx) explains the hierarchy; this view answers the
- * question a hiring reader actually has: what is each thing built ON. Every
- * card leads with the marks of the model, the harness and the services
- * behind it, then the plain-English line, then the stack string from the
- * data file. Names, copy and status come straight from ai-stack.ts; only the
- * logo mapping lives here, and only marks that exist in public/icons.
  */
 
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + '/'
@@ -22,7 +15,7 @@ const T = {
   elevenlabs: { name: 'ElevenLabs', src: `${BASE}icons/ai/elevenlabs.svg` },
   node: { name: 'Node.js', src: `${BASE}icons/ai/nodedotjs.svg` },
   telegram: { name: 'Telegram', src: `${BASE}icons/ai/telegram.svg` },
-  slack: { name: 'Slack', src: `${BASE}icons/slack.svg` },
+  slack: { name: 'Slack', src: `${BASE}icons/ai/slack-color.svg` },
   postgres: { name: 'Postgres + pgvector', src: `${BASE}icons/ai/postgresql.svg` },
   sqlite: { name: 'SQLite FTS5', src: `${BASE}icons/ai/sqlite.svg` },
   nous: { name: 'Nous Hermes', src: `${BASE}icons/ai/hermes.svg` },
@@ -30,8 +23,7 @@ const T = {
   ghl: { name: 'GoHighLevel', src: `${BASE}icons/gohighlevel.png` },
 } satisfies Record<string, Tool>
 
-/** What each system runs on. Keyed by the node id in ai-stack.ts. These are
- *  example marks - swap them for what each of your systems is built on. */
+/** What each system runs on. Keyed by the node id in ai-stack.ts. */
 const TOOLS: Record<string, Tool[]> = {
   'project-a': [T.claude],
   'project-b': [T.claude, T.claudeCode],
@@ -56,8 +48,6 @@ const HARNESS: Tool[] = [
 
 type Group = { title: string; what: string; systems: StackNode[] }
 
-/** Flatten the tree into groups: a branch with children is a group, a leaf
- *  branch (one with a status) is a group of itself plus any children. */
 function groups(root: StackNode): Group[] {
   return (root.children ?? []).map((branch) => ({
     title: branch.name,
@@ -73,7 +63,15 @@ function Card({ n }: { n: StackNode }) {
       <div className="aig__marks" aria-label={`Built with ${tools.map((t) => t.name).join(', ')}`}>
         {tools.map((t) => (
           <span key={t.name} className="aig__mark" title={t.name}>
-            <img src={t.src} alt="" width={22} height={22} loading="lazy" decoding="async" />
+            <img 
+              src={t.src} 
+              alt={t.name} 
+              width={22} 
+              height={22} 
+              loading="lazy" 
+              decoding="async"
+              onError={(e) => { (e.target as HTMLElement).style.display = 'none' }}
+            />
           </span>
         ))}
         {n.status && (
@@ -83,7 +81,7 @@ function Card({ n }: { n: StackNode }) {
         )}
       </div>
       <h4 className="aig__name">
-        <n.Icon size={16} weight="duotone" aria-hidden="true" />
+        {n.Icon && <n.Icon size={16} weight="duotone" aria-hidden="true" />}
         {n.name}
       </h4>
       <p className="aig__what">{n.what}</p>
@@ -111,7 +109,13 @@ export default function AIStackGrid() {
           <span className="aig__harness-label">Built with</span>
           {HARNESS.map((t) => (
             <span key={t.name} className="aig__harness-item">
-              <img src={t.src} alt="" width={20} height={20} />
+              <img 
+                src={t.src} 
+                alt={t.name} 
+                width={20} 
+                height={20} 
+                onError={(e) => { (e.target as HTMLElement).style.display = 'none' }}
+              />
               {t.name}
             </span>
           ))}
