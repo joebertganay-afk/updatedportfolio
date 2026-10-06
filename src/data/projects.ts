@@ -17,6 +17,9 @@ export type AppProject = {
 /** @deprecated use AppProject */
 export type MobileApp = AppProject
 
+/** Dynamically resolves the base path (e.g. '/updatedportfolio/') for Vite/GitHub Pages */
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + '/'
+
 /**
  * Your apps. Screenshots live in public/placeholders/
  */
@@ -33,7 +36,7 @@ export const mobileApps: MobileApp[] = [
     name: 'App Name One',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/app-1.jpg',
+    imageSrc: `${BASE}placeholders/app-1.jpg`,
     imagePosition: '50% 30%',
     accentColor: '#2563EB',
     stats: STATS,
@@ -43,7 +46,7 @@ export const mobileApps: MobileApp[] = [
     name: 'App Name Two',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/app-2.jpg',
+    imageSrc: `${BASE}placeholders/app-2.jpg`,
     accentColor: '#7C3AED',
     stats: STATS,
     badge: 'Badge',
@@ -52,7 +55,7 @@ export const mobileApps: MobileApp[] = [
     name: 'App Name Three',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/app-3.jpg',
+    imageSrc: `${BASE}placeholders/app-3.jpg`,
     accentColor: '#16A34A',
     stats: STATS,
     badge: 'Badge',
@@ -64,7 +67,7 @@ export const webApps: AppProject[] = [
     name: 'Web App One',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/project-1.jpg',
+    imageSrc: `${BASE}placeholders/project-1.jpg`,
     accentColor: '#0EA5E9',
     stats: STATS,
     badge: 'Badge',
@@ -73,7 +76,7 @@ export const webApps: AppProject[] = [
     name: 'Web App Two',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/project-2.jpg',
+    imageSrc: `${BASE}placeholders/project-2.jpg`,
     accentColor: '#EF4444',
     stats: STATS,
     badge: 'Badge',
@@ -82,7 +85,7 @@ export const webApps: AppProject[] = [
     name: 'Web App Three',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/project-3.jpg',
+    imageSrc: `${BASE}placeholders/project-3.jpg`,
     accentColor: '#0891B2',
     stats: STATS,
     badge: 'Badge',
@@ -91,7 +94,7 @@ export const webApps: AppProject[] = [
     name: 'Web App Four',
     tagline: 'PLACEHOLDER - one-line tagline.',
     description: DESC,
-    imageSrc: 'placeholders/project-4.jpg',
+    imageSrc: `${BASE}placeholders/project-4.jpg`,
     accentColor: '#F59E0B',
     stats: STATS,
     badge: 'Badge',
