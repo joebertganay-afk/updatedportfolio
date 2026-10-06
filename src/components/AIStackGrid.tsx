@@ -11,21 +11,23 @@ import { aiStack, type StackNode } from '@/data/ai-stack'
  * logo mapping lives here, and only marks that exist in public/icons.
  */
 
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + '/'
+
 type Tool = { name: string; src: string }
 
 const T = {
-  claude: { name: 'Claude', src: '/icons/ai/claude-color.svg' },
-  claudeCode: { name: 'Claude Code', src: '/icons/claude-code-logo.png' },
-  openai: { name: 'OpenAI Whisper', src: '/icons/openai.svg' },
-  elevenlabs: { name: 'ElevenLabs', src: '/icons/ai/elevenlabs.svg' },
-  node: { name: 'Node.js', src: '/icons/ai/nodedotjs.svg' },
-  telegram: { name: 'Telegram', src: '/icons/ai/telegram.svg' },
-  slack: { name: 'Slack', src: '/icons/slack.svg' },
-  postgres: { name: 'Postgres + pgvector', src: '/icons/ai/postgresql.svg' },
-  sqlite: { name: 'SQLite FTS5', src: '/icons/ai/sqlite.svg' },
-  nous: { name: 'Nous Hermes', src: '/icons/ai/hermes.svg' },
-  docker: { name: 'Docker', src: '/icons/ai/docker.svg' },
-  ghl: { name: 'GoHighLevel', src: '/icons/gohighlevel.png' },
+  claude: { name: 'Claude', src: `${BASE}icons/ai/claude-color.svg` },
+  claudeCode: { name: 'Claude Code', src: `${BASE}icons/claude-code-logo.png` },
+  openai: { name: 'OpenAI Whisper', src: `${BASE}icons/openai.svg` },
+  elevenlabs: { name: 'ElevenLabs', src: `${BASE}icons/ai/elevenlabs.svg` },
+  node: { name: 'Node.js', src: `${BASE}icons/ai/nodedotjs.svg` },
+  telegram: { name: 'Telegram', src: `${BASE}icons/ai/telegram.svg` },
+  slack: { name: 'Slack', src: `${BASE}icons/slack.svg` },
+  postgres: { name: 'Postgres + pgvector', src: `${BASE}icons/ai/postgresql.svg` },
+  sqlite: { name: 'SQLite FTS5', src: `${BASE}icons/ai/sqlite.svg` },
+  nous: { name: 'Nous Hermes', src: `${BASE}icons/ai/hermes.svg` },
+  docker: { name: 'Docker', src: `${BASE}icons/ai/docker.svg` },
+  ghl: { name: 'GoHighLevel', src: `${BASE}icons/gohighlevel.png` },
 } satisfies Record<string, Tool>
 
 /** What each system runs on. Keyed by the node id in ai-stack.ts. These are
@@ -46,10 +48,10 @@ const TOOLS: Record<string, Tool[]> = {
 
 /** The harnesses everything above is built with. */
 const HARNESS: Tool[] = [
-  { name: 'Claude Code', src: '/icons/claude-code-logo.png' },
-  { name: 'Codex', src: '/icons/ai/codex.svg' },
-  { name: 'Cursor', src: '/icons/ai/cursor.svg' },
-  { name: 'Hermes', src: '/icons/ai/hermes.svg' },
+  { name: 'Claude Code', src: `${BASE}icons/claude-code-logo.png` },
+  { name: 'Codex', src: `${BASE}icons/ai/codex.svg` },
+  { name: 'Cursor', src: `${BASE}icons/ai/cursor.svg` },
+  { name: 'Hermes', src: `${BASE}icons/ai/hermes.svg` },
 ]
 
 type Group = { title: string; what: string; systems: StackNode[] }
