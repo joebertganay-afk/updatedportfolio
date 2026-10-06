@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App'
 import Home from '@/components/Home'
 import NotFound from '@/components/NotFound'
+import { SupportTicketingModal } from '@/components/SupportTicketingModal'
 import { restorePerfTier } from '@/lib/perf'
 import { restorePrefs } from '@/lib/a11y'
 
@@ -58,8 +59,8 @@ if (!container) throw new Error('Root element #root not found')
 
 createRoot(container).render(
   <StrictMode>
-<BrowserRouter basename="/updatedportfolio">
-  <Routes>
+    <BrowserRouter basename="/updatedportfolio">
+      <Routes>
         {/* The shell owns the rail, the shader and the intro; each child
             renders into its one scrolling panel. */}
         <Route element={<App />}>
@@ -70,6 +71,7 @@ createRoot(container).render(
           <Route path="/testimonials" element={<TestimonialsGrid />} />
           <Route path="/about" element={<AboutGrid />} />
           <Route path="/contact" element={<ContactGrid />} />
+          <Route path="/support-escalation" element={<SupportTicketingModal />} />
         </Route>
         {/* Standalone pages: their own layout, no rail, document scroll. */}
         <Route path="/privacy" element={<Suspense fallback={null}><Privacy /></Suspense>} />
