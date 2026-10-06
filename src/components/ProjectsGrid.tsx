@@ -8,6 +8,8 @@ import { mobileApps } from '@/data/projects'
 import { aiStack, type StackNode } from '@/data/ai-stack'
 import { useIsPhone } from '@/hooks/useMediaQuery'
 
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + '/'
+
 type Project = {
   id: string
   index: string
@@ -33,25 +35,25 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
 ]
 
 /* Tool marks from /icons */
-const GHL = '/icons/gohighlevel.png'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const CODEX = '/icons/ai/codex.svg'
-const HERMES = '/icons/ai/hermes.svg'
-const PLAY = '/icons/ai/googleplay.svg'
-const CHROME = '/icons/ai/googlechrome.svg'
-const EXPO = '/icons/ai/expo.svg'
+const GHL = `${BASE}icons/gohighlevel.png`
+const CLAUDE_CODE = `${BASE}icons/claude-code-logo.png`
+const CODEX = `${BASE}icons/ai/codex.svg`
+const HERMES = `${BASE}icons/ai/hermes.svg`
+const PLAY = `${BASE}icons/ai/googleplay.svg`
+const CHROME = `${BASE}icons/ai/googlechrome.svg`
+const EXPO = `${BASE}icons/ai/expo.svg`
 
 const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
-  (f) => `/placeholders/${f}`,
+  (f) => `${BASE}placeholders/${f}`,
 )
 
 const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
-const thumbSrc = (f: Funnel) => `/${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
+const thumbSrc = (f: Funnel) => `${BASE}${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
 
 const APP_SHOTS = [
-  ...mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s),
-  '/placeholders/extension-1.jpg',
-  '/placeholders/extension-2.jpg',
+  ...mobileApps.map((a) => (a.imageSrc ? `${BASE}${a.imageSrc.replace(/^\//, '')}` : null)).filter((s): s is string => !!s),
+  `${BASE}placeholders/extension-1.jpg`,
+  `${BASE}placeholders/extension-2.jpg`,
 ]
 
 /** Featured builds stack */
@@ -402,8 +404,3 @@ export default function ProjectsGrid() {
       {open && (
         <ProjectModal project={open} onClose={close}>
           <open.Section />
-        </ProjectModal>
-      )}
-    </section>
-  )
-}
