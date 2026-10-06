@@ -2,19 +2,16 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { X } from '@/components/slab'
 
-// Direct public asset imports ensure Vite resolves the exact relative URLs on GitHub Pages
-import proj1 from './project-1.png?url'
-import proj2 from './project-2.jpg?url'
-import proj3 from './project-3.jpg?url'
-import proj4 from './project-4.jpg?url'
+/** Base URL helper for GitHub Pages subdirectories */
+const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') + '/'
 
 type Sample = { src: string; label: string }
 
 const SAMPLES: Sample[] = [
-  { src: proj1, label: 'United GUARDIANS Web Registration Form' },
-  { src: proj2, label: 'Google Sheets Automated Multi-Tab Database' },
-  { src: proj3, label: 'Google Drive Media Storage Ingestion' },
-  { src: proj4, label: 'Google Apps Script Backend Architecture' },
+  { src: `${BASE}project-1.png`, label: 'United GUARDIANS Web Registration Form' },
+  { src: `${BASE}project-2.jpg`, label: 'Google Sheets Automated Multi-Tab Database' },
+  { src: `${BASE}project-3.jpg`, label: 'Google Drive Media Storage Ingestion' },
+  { src: `${BASE}project-4.jpg`, label: 'Google Apps Script Backend Architecture' },
 ]
 
 export default function WorkflowSamples() {
