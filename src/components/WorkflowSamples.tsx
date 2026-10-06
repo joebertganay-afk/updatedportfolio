@@ -3,10 +3,10 @@ import { createPortal } from 'react-dom'
 import { X } from '@/components/slab'
 
 // Direct public asset imports ensure Vite resolves the exact relative URLs on GitHub Pages
-import proj1 from '/project-1.png?url'
-import proj2 from '/project-2.jpg?url'
-import proj3 from '/project-3.jpg?url'
-import proj4 from '/project-4.jpg?url'
+import proj1 from './project-1.png?url'
+import proj2 from './project-2.jpg?url'
+import proj3 from './project-3.jpg?url'
+import proj4 from './project-4.jpg?url'
 
 type Sample = { src: string; label: string }
 
