@@ -81,7 +81,7 @@ const BUILDS: Project[] = [
     Icon: () => <Robot size={20} weight="duotone" />,
     logos: [CLAUDE_CODE],
     eyebrow: 'Featured build',
-    Section: FrameworkPanel,
+    Section: AutomationsPanel,
     Preview: () => null,
   },
   {
