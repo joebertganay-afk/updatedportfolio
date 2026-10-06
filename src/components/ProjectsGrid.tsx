@@ -404,3 +404,8 @@ export default function ProjectsGrid() {
       {open && (
         <ProjectModal project={open} onClose={close}>
           <open.Section />
+        </ProjectModal>
+      )}
+    </section>
+  )
+}
