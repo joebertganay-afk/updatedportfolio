@@ -401,7 +401,7 @@ export default function ProjectsGrid() {
         </div>
       </div>
 
-      {open && (
+     {open && (
         <ProjectModal project={open} onClose={close}>
           <open.Section />
         </ProjectModal>
